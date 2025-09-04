@@ -1,5 +1,13 @@
 ### Geth Helm Chart
 
+#### Installation
+
+```
+helm install geth ./helm-geth
+```
+
+#### Chart Configuration
+
 Args
 
 ```
