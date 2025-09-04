@@ -16,6 +16,7 @@ image:
 args:
   - --mainnet
   - --datadir=/data
+  - --port=30303
   - --http
   - --http.addr=0.0.0.0
   - --http.port=8545
@@ -29,6 +30,15 @@ args:
   - --metrics.addr=0.0.0.0
   - --metrics.port=6060
 
+env:
+  - name: GETH_PORT
+    value: "30303"            # P2P port → integer only
+  - name: GETH_HTTP_PORT
+    value: "8545"             # JSON-RPC
+  - name: GETH_AUTHRPC_PORT
+    value: "8551"             # Engine API port
+
+    
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
 # This is to override the chart name.
@@ -148,7 +158,7 @@ autoscaling:
 # PVC for geth data persistence
 persistence:
   enabled: true
-  size: 10Gi
+  size: 20Gi
   storageClass: # use default
   accessModes:
     - ReadWriteOnce

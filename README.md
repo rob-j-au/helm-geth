@@ -3,7 +3,7 @@
 #### Installation
 
 ```
-helm install geth ./helm-geth
+helm install --namespace blockchain geth ./helm-geth
 ```
 
 #### Chart Configuration
@@ -48,7 +48,7 @@ JWT Secret Generation
 
 ```
 openssl rand -hex 32 > jwt.hex
-kubectl create secret generic geth-jwt --namespace plex --from-file=jwt.hex=jwt.hex
+kubectl create secret generic geth-jwt --namespace blockchain --from-file=jwt.hex=jwt.hex
 ```
 
 Volumes
