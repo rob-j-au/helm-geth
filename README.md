@@ -44,7 +44,7 @@ ports:
 ```
 
 JWT Secret Generation 
-(shared by Geth and Lightouse)
+(shared by Geth and Lighthouse)
 
 ```
 openssl rand -hex 32 > jwt.hex
